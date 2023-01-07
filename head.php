@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,10 +7,3 @@
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/script.js"></script>
 </head>
-<body>
-    <h1>Aplicación de tareas pendientes</h1>
-    <p>Para comenzar, elige una de las siguientes opciones:</p>
-    <button class="todo" onclick="location.href='login.html'">Iniciar sesión</button>
-    <button class="todo" onclick="location.href='signup.html'">Registrarse</button>
-</body>
-</html>

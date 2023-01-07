@@ -1,27 +1,40 @@
 *{
     margin:0;
     padding: 0;
-    box-sizing: border-box;
     text-decoration: none;
 }
 body {
+    padding-top:60px;
     font-family: Arial, sans-serif;
     background-color: #f1f1f1;
 }
 
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+    text-align: center;
+    margin: auto auto;
+}
 h1 {
+    padding-bottom:30px;
     color: #0066c0;
     text-align: center;
     margin: 20px 0;
 }
-
- input{
-    height: 100%;
+p{
+    margin-bottom: 20px;
+}
+ input, button{
+    height: 30px;
     width: 100%;
     border: 1px solid lightgrey;
     border-radius: 6px;
     outline:none;
+    margin: 15px auto;
     padding: 0 15px;
-    font-size: 17px;
+    font-size: 18px;
     font-family: 'Poppins', sans-serif;
+    max-width: 300px;
 }
