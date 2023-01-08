@@ -10,7 +10,7 @@
         <input type="text" id="username" name="username" required><br>
         <div id="email-error"></div>
         <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br>
+        <input type="email" id="email" name="email" required><br>
         <div id="password-error"></div>
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required><br>
