@@ -41,7 +41,7 @@ $(document).ready(function() {
       }
     } else {
       emailError.text('El email es requerido');
-      emailField.removeClass('error');
+      emailField.addClass('error');
     }
   });
 

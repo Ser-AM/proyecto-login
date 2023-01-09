@@ -26,6 +26,11 @@ h1 {
 p{
     margin-bottom: 20px;
 }
+label {
+    font-size: 20px;
+    margin-bottom: 5px;
+    display: block;
+}
  input, button{
     height: 30px;
     width: 100%;
@@ -37,4 +42,18 @@ p{
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
     max-width: 300px;
+}
+button {
+    background-color: #0066c0;
+    color: white;
+    cursor: pointer;
+}
+.error {
+    border-color: red;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
 }

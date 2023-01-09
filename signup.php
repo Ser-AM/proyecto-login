@@ -5,18 +5,18 @@
     <div class="container">
       <h1>Sign Up</h1>
       <form action="signup.php" method="post">
-        <div id="username-error"></div>
-        <label for="username">Username:</label><br>
+        <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
-        <div id="email-error"></div>
-        <label for="email">Email:</label><br>
+        <div id="username-error" class="error-message"></div>
+        <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br>
-        <div id="password-error"></div>
-        <label for="password">Password:</label><br>
+        <div id="email-error" class="error-message"></div>
+        <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br>
-        <div id="confirm-password-error"></div>
-        <label for="confirm_password">Confirm Password:</label><br>
+        <div id="password-error" class="error-message"></div>
+        <label for="confirm_password">Confirm Password:</label>
         <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+        <div id="confirm-password-error" class="error-message"></div>
         <input type="submit" value="Signup" disabled>
       </form> 
     </div>

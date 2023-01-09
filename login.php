@@ -5,12 +5,12 @@
     <div class="container">
       <h1>Login</h1>
       <form action="login.php" method="post">
-        <div id="username-error"></div>
-        <label for="username">Username:</label><br>
+        <label for="username">Username:</label>
         <input type="text" id="username" name="username"><br>
-        <div id="password-error"></div>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br><br>
+        <div id="username-error" class="error-message"></div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+        <div id="password-error" class="error-message"></div>
         <input type="submit" value="Login">
       </form> 
     </div>
