@@ -24,6 +24,7 @@ $(document).ready(function() {
       usernameError.text('');
       usernameField.removeClass('error');
     }
+    checkErrors();
   });
 
 
@@ -43,6 +44,7 @@ $(document).ready(function() {
       emailError.text('El email es requerido');
       emailField.addClass('error');
     }
+    checkErrors();
   });
 
   // Validar la contraseña
@@ -55,6 +57,7 @@ $(document).ready(function() {
       passwordError.text('');
       passwordField.removeClass('error');
     }
+    checkErrors();
   });
   
   // Validar la confirmación de contraseña
@@ -69,6 +72,28 @@ $(document).ready(function() {
     confirmPasswordError.text('');
     confirmPasswordField.removeClass('error');
     }
+    checkErrors();
   });
+
+// Obtener el botón de submit
+var submitButton = $('input[type="submit"]');
+
+// Función para verificar si hay algún campo con error
+function checkErrors() {
+  // Verificar si hay algún campo con la clase "error"
+  if ($('.error').length > 0) {
+    // Si hay algún campo con error, deshabilitar el botón de submit
+    submitButton.attr('disabled', true);
+  } else {
+    // Si no hay ningún campo con error, habilitar el botón de submit
+    submitButton.attr('disabled', false);
+  }
+}
+
+// Ejecutar la función al hacer click en el botón de submit
+submitButton.on('click', function() {
+  checkErrors();
+});
+
 });
   
