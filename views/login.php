@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <?php require_once "./head.php" ?>
+  <?php $ruta_base = '../';?>
+  <?php require_once "../assets/partials/head.php" ?>
   <body>
     <div class="container">
       <h1>Login</h1>

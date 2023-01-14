@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <?php require_once "./head.php" ?>
+  <?php $ruta_base = '../';?>
+  <?php require_once "../assets/partials/head.php" ?>
   <body>
     <div class="container">
       <h1>Sign Up</h1>
-      <form action="signup.php" method="post">
+      <form action="../models/signup_action.php" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
         <div id="username-error" class="error-message"></div>
@@ -22,3 +23,4 @@
     </div>
   </body>
 </html>
+
