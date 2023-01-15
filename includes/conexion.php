@@ -6,5 +6,4 @@ $conn = mysqli_connect($BBDD_CONFIG['HOST'], $BBDD_CONFIG['USERNAME'], $BBDD_CON
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-echo "Connected successfully";
 ?>

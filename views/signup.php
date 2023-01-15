@@ -5,7 +5,7 @@
   <body>
     <div class="container">
       <h1>Sign Up</h1>
-      <form action="../models/signup_action.php" method="post">
+      <form action="../controllers/signup_controller.php" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br>
         <div id="username-error" class="error-message"></div>

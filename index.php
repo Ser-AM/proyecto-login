@@ -6,8 +6,8 @@
         <div class="container">
             <h1>Proyecto Login</h1>
             <p>Para comenzar, elige una de las siguientes opciones:</p>
-            <button class="todo" onclick="location.href='/views/login.php'">Iniciar sesión</button>
-            <button class="todo" onclick="location.href='/views/signup.php'">Registrarse</button>
+            <button onclick="location.href='/views/login.php'">Iniciar sesión</button>
+            <button onclick="location.href='/views/signup.php'">Registrarse</button>
         </div>
     </body>
 </html>

@@ -5,27 +5,17 @@
     <body>
         <h1>Bienvenido</h1>
         <br>
-        <h2>Posible estructura a desarrollar. Pero el archivo credentials no podria tener la informacion real como deberia ser en un dominio real, sino estaria referenciando a su vez a otro archivo para mantener la estructura deseada y poder publicarla en github pero sin exponer mi informacion</h2>
-        /<br>
-|--app/<br>
-|  |--controllers/<br>
-|  |--models/<br>
-|  |--views/<br>
-|     |-- login.php<br>
-|     |-- signup.php<br>
-|     |-- welcome.php<br>
-|--config/<br>
-|   |--credentials__proyecto-login.php<br>
-|--public/<br>
-|  |--index.php<br>
-|  |--assets/<br>
-|     |--img/<br>
-|     |--css/<br>
-|     |--js/<br>
-|--vendor/<br>
-|--includes/<br>
-|   |-- conexion.php<br>
-|--tests/<br>
-<br>
+        <h2> Estás dentro.</h2>
+        <br>
+        <h3> Siguientes pasos:</h3>
+        <br>
+        <h4>Login controller. Con validación</h4>
+        <h4>Cierres de conexion</h4>
+        <h4>Empezar a ver validaciones que protejan de inyecciones sql</h4>
+        <h4>mejorar conexion haciendola mediante clase (entender antes más en profundidad)</h4>
+        <h4>Sesiones</h4>
+        <h4>.htaccess</h4>
+        <h4>Ajax? no me gusta que me mande a otra pagina si falla la validacion php en el controller</h4>
+        <h4></h4>
     </body>
 </html>
