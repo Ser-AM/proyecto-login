@@ -1,11 +1,20 @@
+<?php 
+session_start();
+if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <?php $ruta_base = '../';?>
     <?php require_once "../assets/partials/head.php" ?>
     <body>
         <h1>Bienvenido</h1>
+        <a href="../controllers/logout.php">Logout</a>
         <br>
-        <h2> Estás dentro.</h2>
+        <h2> Estás dentro. <?php echo $_SESSION['username']; ?></h2>
         <br>
         <h3> Siguientes pasos:</h3>
         <br>

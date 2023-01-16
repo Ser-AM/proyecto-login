@@ -17,19 +17,31 @@
     }
 
     // Comprobar si el usuario existe en la base de datos
-    $user_check_query = "SELECT * FROM usuarios WHERE username='$username' AND password='$password' LIMIT 1";
-    $result = mysqli_query($conn, $user_check_query);
+    $sql = "SELECT * FROM usuarios WHERE username='$username' AND password='$password' LIMIT 1";
+    $result = mysqli_query($conn, $sql);
     $user = mysqli_fetch_assoc($result);
 
     // Si no hay errores y el usuario existe, iniciar sesión
-    if (count($errors) == 0 && $user) {
-        session_start();
-        $_SESSION['username'] = $username;
-        header("Location: ../views/welcome.php");
+    if($user){
+        if(($user['username'] === $username) && /* password_verify($password, $user['password']) */($user['password'] === $password)){
+            //Iniciar sesión
+            session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['logged_in'] = true;
+
+            //Redireccionar al usuario a la página de bienvenida
+            header("Location: ../views/welcome.php");
+        }
     } else {
-        array_push($errors, "El nombre de usuario o la contraseña son incorrectos");
-        foreach($errors as $error){
-            echo $error . "<br>";
+        array_push($errors, "Nombre de usuario o contraseña incorrecta");
+        //Si no hay errores, mostrar mensaje de error
+        if(count($errors) > 0){
+            foreach($errors as $error){
+                echo $error . "<br>";
+            }
         }
     }
+
+    
 ?>
