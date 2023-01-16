@@ -5,7 +5,7 @@
   <body>
     <div class="container">
       <h1>Login</h1>
-      <form action="welcome.php" method="post">
+      <form action="./../controllers/login_controller.php" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username"><br>
         <div id="username-error" class="error-message"></div>
