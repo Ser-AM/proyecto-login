@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <?php $ruta_base = '../';?>
-  <?php require_once "../assets/partials/head.php" ?>
+  <?php //require_once "../assets/partials/head.php" ?>
   <body>
     <div class="container">
       <h1>Sign Up</h1>
@@ -19,8 +19,14 @@
         <input type="password" id="confirm_password" name="confirm_password" required><br><br>
         <div id="confirm-password-error" class="error-message"></div>
         <input type="submit" value="Signup" disabled>
-      </form> 
+      </form>
+      <a href="#" class="link-cambio-vista" data-view="login">Ya tengo cuenta</a> 
     </div>
+    <script>
+      validarUsername();
+      validarEmail();
+      validarPassword();
+      validarConfirmacionPassword();
+    </script>
   </body>
 </html>
-

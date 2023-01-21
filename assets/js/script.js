@@ -1,20 +1,11 @@
-$(document).ready(function() {
-    // Obtener los campos de input
-    var usernameField = $('#username');
-    var emailField = $('#email');
-    var passwordField = $('#password');
-    var confirmPasswordField = $('#confirm_password');
-  
-    // Obtener los elementos de error
-    var usernameError = $('#username-error');
-    var emailError = $('#email-error');
-    var passwordError = $('#password-error');
-    var confirmPasswordError = $('#confirm-password-error');
-  
+
   // Expresion regular para validar emails
   const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-  // Validar el nombre
+// Validar el nombre
+function validarUsername(){
+  var usernameField = $('#username');
+  var usernameError = $('#username-error');
   usernameField.on('focusout', function() {
     var username = $(this).val().trim();
     if (username.length == 0) {
@@ -26,9 +17,12 @@ $(document).ready(function() {
     }
     checkErrors();
   });
+}
 
-
-  // Validar el email
+// Validar el email
+function validarEmail(){
+  var emailField = $('#email');
+  var emailError = $('#email-error');
   emailField.on('focusout', function() {
     var email = $(this).val().trim();
     if (email.length > 0) {
@@ -46,12 +40,19 @@ $(document).ready(function() {
     }
     checkErrors();
   });
+}
 
-  // Validar la contraseña
+// Validar la contraseña
+function validarPassword(){
+  var passwordField = $('#password');
+  var passwordError = $('#password-error');
   passwordField.on('focusout', function() {
     var password = $(this).val().trim();
     if (password.length == 0) {
       passwordError.text('La contraseña es requerida');
+      passwordField.addClass('error');
+    }else if (password.length <= 7) {
+      passwordError.text('La contraseña debe tener al menos 8 caracteres');
       passwordField.addClass('error');
     } else {
       passwordError.text('');
@@ -59,12 +60,14 @@ $(document).ready(function() {
     }
     checkErrors();
   });
-  
-  // Validar la confirmación de contraseña
+}
+// Validar la confirmación de contraseña
+function validarConfirmacionPassword(){
+  var confirmPasswordField = $('#confirm_password');
+  var confirmPasswordError = $('#confirm-password-error');
   confirmPasswordField.on('focusout', function() {
-    var confirmPassword = $(this).val().trim();
-    var password = passwordField.val().trim();
-    console.log(password, confirmPassword);
+    var password = $('#password').val().trim();
+    var confirmPassword = $('#confirm_password').val().trim();
     if (password !== confirmPassword) {
     confirmPasswordError.text('Las contraseñas deben coincidir');
     confirmPasswordField.addClass('error');
@@ -74,26 +77,61 @@ $(document).ready(function() {
     }
     checkErrors();
   });
-
-// Obtener el botón de submit
-var submitButton = $('input[type="submit"]');
+}
 
 // Función para verificar si hay algún campo con error
 function checkErrors() {
   // Verificar si hay algún campo con la clase "error"
   if ($('.error').length > 0) {
     // Si hay algún campo con error, deshabilitar el botón de submit
-    submitButton.attr('disabled', true);
+    $('input[type="submit"]').attr('disabled', true);
   } else {
     // Si no hay ningún campo con error, habilitar el botón de submit
-    submitButton.attr('disabled', false);
+    $('input[type="submit"]').attr('disabled', false);
   }
 }
 
 // Ejecutar la función al hacer click en el botón de submit
-submitButton.on('click', function() {
+$('input[type="submit"]').on('click', function() {
   checkErrors();
 });
 
+$(document).on("click", "#login-button", function(event) {
+  event.preventDefault(); // evitar que se recargue la página
+  var formData = $(this).serialize(); // obtener los datos del form
+  $.ajax({
+      type: "POST",
+      url: "./controllers/login_controller.php",
+      data: formData,
+      success: function(response) {
+        response = JSON.parse(response);
+        if (response.status == "success") {
+            cargarVista({view: "welcome"}, "#contenido")
+        } else {
+            // si no es exitoso, mostrar mensaje de error
+            alert(response);
+        }
+      }
+  });
 });
-  
+//  cualquier enlace con el data-view puede indicar cual es la vista que quiere cargar 
+$(document).on("click", ".link-cambio-vista", function(e) {
+e.preventDefault();
+var view = $(this).data("view");
+cargarVista({view: view}, "#contenido")
+});
+
+
+//  Cargar por ajax la vista o partial que se quiere.
+//  El primer parametro es la vista que se quiere mostrar, el segundo es el elemento en el que se quiere cargar.
+//  Hacerlo con ambos parametros hace que sea valida tanto para cambiar de vista del contenido, como para cambiar de sidebar o incluso de header.
+function cargarVista(datos, elemento) {
+  $.ajax({
+      type: 'POST',
+      url: 'http://proyecto-login.monroy.dev/controllers/getView.php',
+      data: datos,
+      success: function(response) {
+          $(elemento).html(response);
+      }
+  });
+}

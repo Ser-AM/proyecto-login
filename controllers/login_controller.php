@@ -9,12 +9,8 @@
     $errors = array();
 
     // Validar los datos
-    if (empty($username)) {
-        array_push($errors, "El nombre de usuario es requerido");
-    }
-    if (empty($password)) {
-        array_push($errors, "La contraseña es requerida");
-    }
+    if (empty($username)) {array_push($errors, "El nombre de usuario es requerido");}
+    if (empty($password)) {array_push($errors, "La contraseña es requerida");}
 
     // Comprobar si el usuario existe en la base de datos
     $sql = "SELECT * FROM usuarios WHERE username='$username' AND password='$password' LIMIT 1";
@@ -30,8 +26,8 @@
             $_SESSION['email'] = $user['email'];
             $_SESSION['logged_in'] = true;
 
-            //Redireccionar al usuario a la página de bienvenida
-            header("Location: ../views/welcome.php");
+            //Enviar petición ajax para cargar la vista de bienvenida
+            echo json_encode(array("status" => "success", "view" => "welcome"));
         }
     } else {
         array_push($errors, "Nombre de usuario o contraseña incorrecta");
@@ -42,6 +38,4 @@
             }
         }
     }
-
-    
 ?>
