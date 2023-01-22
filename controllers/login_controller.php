@@ -5,6 +5,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    //var_dump($_POST);
     // Inicializar un array de errores
     $errors = array();
 
@@ -33,9 +34,7 @@
         array_push($errors, "Nombre de usuario o contraseña incorrecta");
         //Si no hay errores, mostrar mensaje de error
         if(count($errors) > 0){
-            foreach($errors as $error){
-                echo $error . "<br>";
-            }
+            echo json_encode(array("status" => "error", "message" => $errors));
         }
     }
 ?>

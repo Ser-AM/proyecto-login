@@ -10,6 +10,7 @@
     <input id="login-button" type="submit" value="Login">
   </form> 
   <a href="#" class="link-cambio-vista" data-view="signup">Registrarse</a>
+  <div id='error-div'></div>
 </div>
 <script>
   validarUsername();

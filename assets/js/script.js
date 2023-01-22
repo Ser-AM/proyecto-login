@@ -98,7 +98,7 @@ $('input[type="submit"]').on('click', function() {
 
 $(document).on("click", "#login-button", function(event) {
   event.preventDefault(); // evitar que se recargue la página
-  var formData = $(this).serialize(); // obtener los datos del form
+  var formData = $("#login-form").serialize(); // obtener los datos del form
   $.ajax({
       type: "POST",
       url: "./controllers/login_controller.php",
@@ -107,9 +107,13 @@ $(document).on("click", "#login-button", function(event) {
         response = JSON.parse(response);
         if (response.status == "success") {
             cargarVista({view: "welcome"}, "#contenido")
-        } else {
+        } else if (response.status == "error") {
+          var message = response.message;
+          $("#error-div").text(message);
+          $("#error-div").show();
+      }else{
             // si no es exitoso, mostrar mensaje de error
-            alert(response);
+            alert("Error desconocido");
         }
       }
   });

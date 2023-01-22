@@ -13,13 +13,13 @@
         
         <?php session_start(); ?>
         <div id="contenido" class="container">
-        <?php 
-            if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
-                include_once "./views/login.php";
-            }else{
-                include_once "./views/welcome.php";
-            }
-        ?>
-    </div>
-</body>
+            <?php 
+                if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+                    include_once "./views/login.php";
+                }else{
+                    include_once "./views/welcome.php";
+                }
+            ?>
+        </div>
+    </body>
 </html>
