@@ -51,10 +51,35 @@ function validarPassword(){
     if (password.length == 0) {
       passwordError.text('La contraseña es requerida');
       passwordField.addClass('error');
-    }else if (password.length <= 7) {
+    }else {
+      passwordError.text('');
+      passwordField.removeClass('error');
+    }
+    checkErrors();
+  });
+}
+// Validar la contraseña
+function validarPasswordSignup(){
+  var passwordField = $('#password');
+  var passwordError = $('#password-error');
+  passwordField.on('focusout', function() {
+    var password = $(this).val().trim();
+    if (password.length == 0) {
+      passwordError.text('La contraseña es requerida');
+      passwordField.addClass('error');
+    }else if (password.length < 8) {
       passwordError.text('La contraseña debe tener al menos 8 caracteres');
       passwordField.addClass('error');
-    } else {
+    }else if (password.length > 16) {
+      passwordError.text('La contraseña debe tener como máximo 16 caracteres');
+      passwordField.addClass('error');
+    }else if (!/[a-z]/.test(password)) {
+      passwordError.text('La contraseña debe tener al menos una letra minúscula');
+      passwordField.addClass('error');
+      }else if (!/[A-Z]/.test(password)) {
+      passwordError.text('La contraseña debe tener al menos una letra mayúscula');
+      passwordField.addClass('error');
+      } else {
       passwordError.text('');
       passwordField.removeClass('error');
     }
