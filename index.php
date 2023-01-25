@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon" href="<?php echo $ruta_base; ?>assets/img/favicon.png">
         <link rel="stylesheet" href="./assets/css/style.css">
-        <title>Inicio</title>
+        <title id='title'>Inicio</title>
         <script src="./assets/js/jquery-3.6.0.min.js"></script>
         <script src="./assets/js/script.js"></script>
     </head>

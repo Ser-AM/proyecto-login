@@ -1,6 +1,6 @@
 
-  // Expresion regular para validar emails
-  const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+// Expresion regular para validar emails
+const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 // Validar el nombre
 function validarUsername(){
@@ -76,10 +76,10 @@ function validarPasswordSignup(){
     }else if (!/[a-z]/.test(password)) {
       passwordError.text('La contraseña debe tener al menos una letra minúscula');
       passwordField.addClass('error');
-      }else if (!/[A-Z]/.test(password)) {
+    }else if (!/[A-Z]/.test(password)) {
       passwordError.text('La contraseña debe tener al menos una letra mayúscula');
       passwordField.addClass('error');
-      } else {
+    } else {
       passwordError.text('');
       passwordField.removeClass('error');
     }
@@ -163,4 +163,7 @@ function cargarVista(datos, elemento) {
           $(elemento).html(response);
       }
   });
+}
+function cambiarTitulo(titulo) {
+  $('#title').text(titulo);
 }

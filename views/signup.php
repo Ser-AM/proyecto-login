@@ -27,6 +27,8 @@
       validarEmail();
       validarPassword();
       validarConfirmacionPassword();
+      cambiarTitulo('Signup');
+
     </script>
   </body>
 </html>

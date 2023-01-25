@@ -15,4 +15,5 @@
 <script>
   validarUsername();
   validarPassword();
+  cambiarTitulo('Login');
 </script>
