@@ -4,7 +4,7 @@
     text-decoration: none;
 }
 body {
-    padding-top:60px;
+    /* padding-top:60px; */
     font-family: Arial, sans-serif;
     background-color: #f1f1f1;
 }
@@ -56,4 +56,31 @@ button {
 .error-message {
     color: red;
     font-size: 14px;
+}
+#contenedor-header{
+    display: flex;
+    flex-direction: row;
+    height:100px;
+    width:100%;
+    border: 2px solid gray;  
+
+}
+.logo{
+    height: 100%;
+    width:250px;
+    border: 2px solid gray;  
+}
+nav ul{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+nav ul li{
+    width: 100px;
+    height: 100%;
+    list-style: none;
+    margin: auto auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
